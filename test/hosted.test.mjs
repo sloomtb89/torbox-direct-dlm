@@ -33,7 +33,7 @@ function upstream(calls) {
       const mine=auth===`Bearer ${KEY_A}`?[{id:12,hash:ownedByA,name:fileA.name,size:fileA.size,files:[fileA]}]:[];
       return ok(u.searchParams.get('id')?mine[0]:[...mine,{id:11,hash:shared,name:file.name,size:file.size,files:[file]}]);
     }
-    if(u.pathname.endsWith('/requestdl'))return ok('https://nexus-test.neur.tb-cdn.st/test-video.mkv');
+    if(u.pathname.endsWith('/requestdl'))return ok('https://nexus-test.neur.tb-cdn.earth/test-video.mkv');
     throw new Error('Unexpected TorBox route '+u.pathname);
   };
 }
@@ -90,7 +90,7 @@ test('hosted addon: blank page, per-account encrypted links, isolated libraries,
     const streamsA2=(await (await fetch(linkA2.replace('/manifest.json','')+'/stream/movie/tt123.json')).json()).streams;
     assert.ok(streamsA2.every(s=>s.url.startsWith(linkA2.replace('/manifest.json','')+'/play/')),'regenerated links never reuse another install URL from the response cache');
     const played=await fetch(baseA+'/play/'+tokenA,{redirect:'manual'});
-    assert.equal(played.status,307);assert.match(played.headers.get('location'),/^https:\/\/nexus-test\.neur\.tb-cdn\.st\//);
+    assert.equal(played.status,307);assert.match(played.headers.get('location'),/^https:\/\/nexus-test\.neur\.tb-cdn\.earth\//);
     assert.equal((await fetch(baseB+'/play/'+tokenA,{redirect:'manual'})).status,403,'a play link only works under its own account');
     assert.ok(!calls.some(c=>c.path.includes('createtorrent')),'library and owned items never trigger an add');
 
