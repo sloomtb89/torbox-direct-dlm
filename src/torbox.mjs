@@ -176,7 +176,7 @@ export class TorBox {
     const link = await this.request('/torrents/requestdl', { query: { token: this.apiKey, torrent_id: item.id, file_id: file.id, redirect: false } });
     let url;
     try { url = new URL(link); } catch { throw new TorBoxError('BAD_PLAYBACK_LINK', 'TorBox returned an invalid playback link'); }
-    if (url.protocol !== 'https:' || !/(^|\.)tb-cdn\.(st|app)$/.test(url.hostname)) throw new TorBoxError('BAD_PLAYBACK_LINK', 'TorBox returned an unexpected playback host');
+    if (url.protocol !== 'https:' || !/(^|\.)tb-cdn\.(app|cx|earth|io|pw|sh|st|to)$/.test(url.hostname)) throw new TorBoxError('BAD_PLAYBACK_LINK', 'TorBox returned an unexpected playback host');
     return { url: url.href, torrentId: item.id, fileId: file.id };
   }
 }
