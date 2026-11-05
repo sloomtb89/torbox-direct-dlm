@@ -1,4 +1,10 @@
-# TorBox Direct
+# TorBox Direct · DLM
+
+نسخة معدّلة من [TorBox Direct](https://github.com/Uskhorm/torbox-direct) لإظهار المصادر المحفوظة في TorBox داخل Nuvio وStremio. يضيف التعديل نطاقات TorBox الموثّقة إلى قائمة النطاقات المسموح بها لمعالجة رفض بعض روابط التشغيل.
+
+بعد نشر نسختك، افتح `/configure` وأدخل مفتاح TorBox، ثم انسخ رابط الـManifest الشخصي إلى Nuvio. احتفظ بالرابط لنفسك. [خطوات النشر على Vercel](#vercel)
+
+This fork adds support for more [documented TorBox CDN domains](https://support.torbox.app/en/articles/13181686-accessing-torbox-with-nextdns).
 
 [![Checks](https://github.com/Uskhorm/torbox-direct/actions/workflows/ci.yml/badge.svg)](https://github.com/Uskhorm/torbox-direct/actions/workflows/ci.yml)
 
